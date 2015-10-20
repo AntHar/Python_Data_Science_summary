@@ -16,3 +16,6 @@ print world_alcohol[:,3][beer] #mask boolean to the column and get only the valu
 types = world_alcohol[:,3][0:10]
 beer_boolean = types == "Beer"
 print(types[beer_boolean])
+#Example3
+beer = world_alcohol[:,3] == "Beer"
+print world_alcohol[beer,:]
