@@ -7,3 +7,6 @@ some_columns_row_four=row_four[2:4] #array object numpy
 #size of matrix or array
 print (nfl.shape)
 print (row_four.shape)
+#get values iqual to .....
+beer = world_alcohol[:,3] == "Beer" # get boolean for that column
+print world_alcohol[:,3][beer] #mask boolean to the column and get only the values with masked as TRUE
