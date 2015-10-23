@@ -47,3 +47,5 @@ normalized_vitamin_c=food_info["Vit_C_(mg)"]/food_info["Vit_C_(mg)"].max()
 #function sum()
 row_total = food_info[column_list].sum(axis=1)
 column_total = food_info[column_list].sum(axis=0)
+#add a column
+data_frame["new column"]=data_frame["other_column"]+2
