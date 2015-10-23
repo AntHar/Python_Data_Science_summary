@@ -7,6 +7,8 @@ some_columns_row_four=row_four[2:4] #array object numpy
 #size of matrix or array
 print (nfl.shape)
 print (row_four.shape)
+#convert columns 
+row_four.astype(float)
 
 #get values iqual to .....
 #Example1
