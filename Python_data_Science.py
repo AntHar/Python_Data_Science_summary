@@ -8,7 +8,9 @@ some_columns_row_four=row_four[2:4] #array object numpy
 print (nfl.shape)
 print (row_four.shape)
 #convert columns 
-row_four.astype(float)
+column_four.astype(float)
+#sum values
+total_sum_column_four=column_four.sum()
 
 #get values iqual to .....
 #Example1
