@@ -39,3 +39,8 @@ fiber_and_sugar = food_data_frame[['Fiber_TD_(g)', 'Sugar_Tot_(g)']]
 # we can do math with columns/vectors (same length) or apply an operation to the whole column
 grams_of_protein_per_calorie = food_info["Protein_(g)"] / food_info["Energ_Kcal"
 protein_kilograms = food_info["Protein_(g)"] / 1000
+# we can sort the entire data.frame
+descending_fat = food_info.sort(["Lipid_Tot_(g)"], ascending=[False])
+print(descending_fat.iloc[0,:])
+#normalizing
+normalized_vitamin_c=food_info["Vit_C_(mg)"]/food_info["Vit_C_(mg)"].max()
