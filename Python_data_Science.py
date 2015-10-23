@@ -26,3 +26,14 @@ print world_alcohol[beer,:]
 #Example4
 yemen_1987_bool=(world_alcohol[:,0]=="1987") & (world_alcohol[:,2]=="Yemen")
 yemen_1987=world_alcohol[yemen_1987_bool,:]
+
+
+###################### PANDAS
+pandas_dat=pandas.read_csv("file.csv")
+pandas_dataframe.iloc[0,0]
+pandas_dataframe.iloc[:,0]
+pandas_dataframe.iloc[0,:] 
+# I can also get columns by name (we can get columns 2 at a time, etc ...)
+fiber = food_data_frame['Fiber_TD_(g)']
+fiber_and_sugar = food_data_frame[['Fiber_TD_(g)', 'Sugar_Tot_(g)']]
+# we can do math with columns/vectors (same length)
