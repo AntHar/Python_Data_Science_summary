@@ -44,3 +44,6 @@ descending_fat = food_info.sort(["Lipid_Tot_(g)"], ascending=[False])
 print(descending_fat.iloc[0,:])
 #normalizing
 normalized_vitamin_c=food_info["Vit_C_(mg)"]/food_info["Vit_C_(mg)"].max()
+#function sum()
+row_total = food_info[column_list].sum(axis=1)
+column_total = food_info[column_list].sum(axis=0)
