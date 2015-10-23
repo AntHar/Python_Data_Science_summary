@@ -19,3 +19,6 @@ print(types[beer_boolean])
 #Example3
 beer = world_alcohol[:,3] == "Beer"
 print world_alcohol[beer,:]
+#Example4
+yemen_1987_bool=(world_alcohol[:,0]=="1987") & (world_alcohol[:,2]=="Yemen")
+yemen_1987=world_alcohol[yemen_1987_bool,:]
