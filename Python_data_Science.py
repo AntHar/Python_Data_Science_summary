@@ -25,6 +25,7 @@ beer = world_alcohol[:,3] == "Beer"
 print world_alcohol[beer,:]
 #Example4
 yemen_1987_bool=(world_alcohol[:,0]=="1987") & (world_alcohol[:,2]=="Yemen")
+port_stats = titanic_survival.pivot_table(index="embarked", values=["age","survived","fare"],aggfunc=np.mean)
 yemen_1987=world_alcohol[yemen_1987_bool,:]
 
 
