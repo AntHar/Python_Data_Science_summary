@@ -53,3 +53,4 @@ data_frame["new column"]=data_frame["other_column"]+2
 age_null = pd.isnull(titanic_survival["age"])
 age=titanic_survival["age"][age_null==False]
 correct_mean_age=age.sum()/len(age)
+correct_mean_age = titanic_survival["age"].mean() # this one compuntes mean (without using null values)
