@@ -49,3 +49,7 @@ row_total = food_info[column_list].sum(axis=1)
 column_total = food_info[column_list].sum(axis=0)
 #add a column
 data_frame["new column"]=data_frame["other_column"]+2
+#is null
+age_null = pd.isnull(titanic_survival["age"])
+age=titanic_survival["age"][age_null==False]
+correct_mean_age=age.sum()/len(age)
