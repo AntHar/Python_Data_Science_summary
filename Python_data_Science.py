@@ -57,5 +57,17 @@ correct_mean_age=age.sum()/len(age)
 correct_mean_age = titanic_survival["age"].mean() # this one compuntes mean (without using null values)
 #pivot table
 passenger_survival = titanic_survival.pivot_table(index="pclass", values="survived", aggfunc=np.mean)
-#drop NA/null values
+#drop NA/null values. 
 new_titanic_survival = titanic_survival.dropna(axis=1)
+#drop rows with one of these columns with null
+titanic_reindexed = titanic_survival.dropna(subset=["age","boat"])
+titanic_reindexed = titanic_reindexed.reset_index(drop=True) # indexes are maintained. This will reset them.
+#apply. Applies function to colomn or row (axis=1)
+def age_status (row):
+    if row["age"]<18:
+        return "minor"
+    elif row["age"]>=18:
+        return "adult"
+    else:
+        return "unknown"
+age_labels = titanic_survival.apply(age_status,axis=1)
