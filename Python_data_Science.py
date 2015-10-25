@@ -57,3 +57,5 @@ correct_mean_age=age.sum()/len(age)
 correct_mean_age = titanic_survival["age"].mean() # this one compuntes mean (without using null values)
 #pivot table
 passenger_survival = titanic_survival.pivot_table(index="pclass", values="survived", aggfunc=np.mean)
+#drop NA/null values
+new_titanic_survival = titanic_survival.dropna(axis=1)
