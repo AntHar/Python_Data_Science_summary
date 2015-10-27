@@ -33,7 +33,7 @@ yemen_1987=world_alcohol[yemen_1987_bool,:]
 
 
 pandas_dat=pandas.read_csv("file.csv")
-pandas_dat.index #gives me the columns back
+pandas_dat.index #gives me the rows back (not values, the names)
 pandas_dat
 pandas_dataframe.iloc[0,0]
 pandas_dataframe.iloc[:,0]
