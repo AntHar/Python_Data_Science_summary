@@ -69,6 +69,8 @@ new_titanic_survival = titanic_survival.dropna(axis=1)
 #drop rows with one of these columns with null
 titanic_reindexed = titanic_survival.dropna(subset=["age","boat"])
 titanic_reindexed = titanic_reindexed.reset_index(drop=True) # indexes are maintained. This will reset them.
+# In[18]: how many NULLs per column
+total_na = all_ages.isnull().sum()
 #apply. Applies function to colomn or row (axis=1)
 def age_status (row):
     if row["age"]<18:
