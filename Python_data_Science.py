@@ -30,7 +30,11 @@ yemen_1987=world_alcohol[yemen_1987_bool,:]
 
 
 ###################### PANDAS
+
+
 pandas_dat=pandas.read_csv("file.csv")
+pandas_dat.index #gives me the columns back
+pandas_dat
 pandas_dataframe.iloc[0,0]
 pandas_dataframe.iloc[:,0]
 pandas_dataframe.iloc[0,:] 
@@ -51,6 +55,7 @@ column_total = food_info[column_list].sum(axis=0)
 #add a column
 data_frame["new column"]=data_frame["other_column"]+2
 #is null
+    all_ages.isnull().sum() # total nulls
 age_null = pd.isnull(titanic_survival["age"])
 age=titanic_survival["age"][age_null==False]
 correct_mean_age=age.sum()/len(age)
@@ -73,3 +78,8 @@ def age_status (row):
     else:
         return "unknown"
 age_labels = titanic_survival.apply(age_status,axis=1)
+#how many values of each
+all_ages['Major_category'].value_counts()
+#get unique values of a column
+all_ages['Major_category'].value_counts().index #or
+list(pd.unique(recent_grads["Major_category"].values.ravel()))
