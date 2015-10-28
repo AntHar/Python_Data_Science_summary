@@ -85,3 +85,11 @@ all_ages['Major_category'].value_counts()
 #get unique values of a column
 all_ages['Major_category'].value_counts().index #or
 list(pd.unique(recent_grads["Major_category"].values.ravel()))
+
+
+####### different ways todo same things :)
+recent_grads.pivot_table(index=['Major_category'], values=['Median'],aggfunc=np.mean)
+recent_grads.groupby(['Major_category'])['Median'].mean()  #sql like
+#######
+recent_grads["Major"][recent_grads["Median"]>60000]
+recent_grads.loc[recent_grads.Median > 60000, "Major"]
