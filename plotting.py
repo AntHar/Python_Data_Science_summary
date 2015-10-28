@@ -9,3 +9,9 @@ plt.xlabel("Wind speed when fire started")
 plt.ylabel("Area consumed by fire")
 plt.title("Wind speed vs fire area")
 plt.show()
+#bar char
+plt.bar(y_index, area_by_y)
+plt.show()
+#change styles
+print(plt.style.available)
+plt.style.use('ggplot')
