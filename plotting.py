@@ -9,9 +9,12 @@ plt.xlabel("Wind speed when fire started")
 plt.ylabel("Area consumed by fire")
 plt.title("Wind speed vs fire area")
 plt.show()
-#bar char
+#bar char. this is good but I usually use data_frame.plot(kind='bar')
 plt.bar(y_index, area_by_y)
 plt.show()
+#--------------this one better:
+mask = recent_grads.pivot_table(index="Major_category",values=["Median","P25th","P75th"],aggfunc=np.mean).sort("Median")
+mask.plot(kind='bar')
 #change styles
 print(plt.style.available)
 plt.style.use('ggplot')
@@ -22,3 +25,6 @@ recent_grads.hist(column=columns,layout=(2,1))
 #boxplot for subsets:
 recent_grads[["Major_category","Sample_size"]].boxplot(by="Major_category")
 plt.xticks(rotation=90)
+#multiple plots in one chart to check por correlation.
+plt.scatter(recent_grads["ShareWomen"],recent_grads["Median"],color="red")
+plt.scatter(recent_grads["Unemployment_rate"],recent_grads["Median"],color="blue")
