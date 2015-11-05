@@ -30,7 +30,7 @@ plt.scatter(recent_grads["ShareWomen"],recent_grads["Median"],color="red")
 plt.scatter(recent_grads["Unemployment_rate"],recent_grads["Median"],color="blue")
 
 
-#seaborn!
+#seaborn! http://stanford.edu/~mwaskom/software/seaborn/api.html#api-ref
 import seaborn as sns
 #historgram
 sns.distplot(births['prglngth'], kde=False)
