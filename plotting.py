@@ -37,4 +37,5 @@ sns.distplot(births['prglngth'], kde=False)
 sns.axlabel('Pregnancy Length, weeks', 'Frequency')
 #boxplot for subsets:
 sns.boxplot(x=births["birthord"], y=births["agepreg"])
-
+#pairplots!
+sns.pairplot(births[["agepreg","prglngth","birthord"]])
