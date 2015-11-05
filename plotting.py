@@ -28,5 +28,13 @@ plt.xticks(rotation=90)
 #multiple plots in one chart to check por correlation.
 plt.scatter(recent_grads["ShareWomen"],recent_grads["Median"],color="red")
 plt.scatter(recent_grads["Unemployment_rate"],recent_grads["Median"],color="blue")
+
+
 #seaborn!
 import seaborn as sns
+#historgram
+sns.distplot(births['prglngth'], kde=False)
+sns.axlabel('Pregnancy Length, weeks', 'Frequency')
+#boxplot for subsets:
+sns.boxplot(x=births["birthord"], y=births["agepreg"])
+
