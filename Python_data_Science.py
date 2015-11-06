@@ -85,6 +85,9 @@ all_ages['Major_category'].value_counts()
 #get unique values of a column
 all_ages['Major_category'].value_counts().index #or
 list(pd.unique(recent_grads["Major_category"].values.ravel()))
+# are any values in a list in a column? 
+df["column1"].isin([1,2,3,4])
+
 
 
 ####### different ways todo same things :)
