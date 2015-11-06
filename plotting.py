@@ -33,9 +33,20 @@ plt.scatter(recent_grads["Unemployment_rate"],recent_grads["Median"],color="blue
 #seaborn! http://stanford.edu/~mwaskom/software/seaborn/api.html#api-ref
 import seaborn as sns
 #historgram
-sns.distplot(births['prglngth'], kde=False)
+sns.distplot(births['prglngth'], kde=False, rug=True, bins=10, hist=False)
 sns.axlabel('Pregnancy Length, weeks', 'Frequency')
-#boxplot for subsets:
-sns.boxplot(x=births["birthord"], y=births["agepreg"])
+#scatterplots
+sns.jointplot(x="Median",y="ShareWomen",data=recent_grads)
+sns.jointplot(x="Median",y="ShareWomen",data=recent_grads, kind="hex") #hexbin plot. Good for large datasets
 #pairplots!
 sns.pairplot(births[["agepreg","prglngth","birthord"]])
+#boxplot for subsets:
+sns.boxplot(x=births["birthord"], y=births["agepreg"])
+#visualize liniar relationships
+sns.regplot(x="ShareWomen",y="Median",data=recent_grads)
+sns.regplot(x="ShareWomen",y="Median",hue="sex",data=recent_grads, ) # I can add a hue to fit 2 lines of subgroups and see if additive or interaction model, for markers and colors markers=["o", "x"], palette="Set1"
+#if I add col= is like adding another hue, I'll get separete plots. row= will add yet another one!!!! i could have hue="smokers", col="sex" and row="season"
+sns.regplot(x="ShareWomen",y="Median",data=recent_grads, lowess=True) #Shows the curve data
+sns.residplot(x="ShareWomen",y="Median",data=recent_grads) # check residuals
+
+
