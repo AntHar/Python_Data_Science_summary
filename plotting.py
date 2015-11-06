@@ -40,13 +40,28 @@ sns.jointplot(x="Median",y="ShareWomen",data=recent_grads)
 sns.jointplot(x="Median",y="ShareWomen",data=recent_grads, kind="hex") #hexbin plot. Good for large datasets
 #pairplots!
 sns.pairplot(births[["agepreg","prglngth","birthord"]])
-#boxplot for subsets:
-sns.boxplot(x=births["birthord"], y=births["agepreg"])
 #visualize liniar relationships
 sns.regplot(x="ShareWomen",y="Median",data=recent_grads)
 sns.regplot(x="ShareWomen",y="Median",hue="sex",data=recent_grads, ) # I can add a hue to fit 2 lines of subgroups and see if additive or interaction model, for markers and colors markers=["o", "x"], palette="Set1"
 #if I add col= is like adding another hue, I'll get separete plots. row= will add yet another one!!!! i could have hue="smokers", col="sex" and row="season"
 sns.regplot(x="ShareWomen",y="Median",data=recent_grads, lowess=True) #Shows the curve data
 sns.residplot(x="ShareWomen",y="Median",data=recent_grads) # check residuals
+###### CATEGORICAL
+#1.observations within each level of the categorical variable:  stripplot(), boxplot(), and violinplot(), 
+#boxplot for subsets: I could use hue for yet another categorical value!
+sns.boxplot(x='Major_category',y='Median',data=recent_grads)
+plt.xticks(rotation=90)
+#I can pass a data.frame to see boxplot of all values :
+sns.boxplot(data=recent_grads)
+#distribution of observations:
+sns.stripplot(x='Major_category',y='Median',data=recent_grads)
+plt.xticks(rotation=90)
+#2.apply a statistical estimation to show a measure of central tendency and confidence interval:  barplot(), countplot(), and pointplot()
+#barplot. This will show the man by default. Again, I could use hue to add yet another categorical value
+sns.barplot(x='Major_category',y='Median',data=recent_grads.sort("Median"))
+plt.xticks(rotation=90)
+#countplot: number of observations for each each categorical value
+sns.countplot(x='Major_category',data=recent_grads,palette='Greens_d')
+plt.xticks(rotation=90)
 
 
