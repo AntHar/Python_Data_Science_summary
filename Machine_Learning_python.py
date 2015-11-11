@@ -1,4 +1,5 @@
-#skew
+#skew, kurtosis and modality (characteristics of histograms)
 from scipy.stats import skew
+from scipy.stats import kurtosis
 positive_skew=skew(array)
-#Kurtosis measures whether the distribution is short and flat, or tall and skinny.
+
