@@ -22,7 +22,8 @@ plt.style.use('ggplot')
 #check all options in http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.hist.html#pandas-dataframe-hist
 columns = ['Median','Sample_size']
 recent_grads.hist(column=columns,layout=(2,1))
-plt.axvline(recent_grads["Median"].mean()) # draws a vertical line where the mean is
+plt.axvline(recent_grads["Median"].mean(),color="r") # draws a vertical line where the mean is
+plt.axvline(recent_grads["Median"].median(),color="b") # draws a vertical line where the median is
 #boxplot for subsets:
 recent_grads[["Major_category","Sample_size"]].boxplot(by="Major_category")
 plt.xticks(rotation=90)
