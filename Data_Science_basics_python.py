@@ -64,6 +64,8 @@ correct_mean_age = titanic_survival["age"].mean() # this one compuntes mean (wit
 passenger_survival = titanic_survival.pivot_table(index="pclass", values="survived", aggfunc=np.mean)
 #more complex pivot table
 port_stats = titanic_survival.pivot_table(index="embarked", values=["age","survived","fare"],aggfunc=np.mean)
+#drop columns
+titanic_df = titanic_df.drop(['PassengerId','Name','Ticket'], axis=1)
 #drop NA/null values. (axis=1 drops columns. otherwise I drop rows)
 new_titanic_survival = titanic_survival.dropna(axis=1)
 #drop rows with one of these columns with null
