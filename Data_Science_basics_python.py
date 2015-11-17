@@ -47,6 +47,9 @@ protein_kilograms = food_info["Protein_(g)"] / 1000
 # we can sort the entire data.frame
 descending_fat = food_info.sort(["Lipid_Tot_(g)"], ascending=[False])
 print(descending_fat.iloc[0,:])
+#rename columns
+data.rename(columns={'gdp':'log(gdp)'}, inplace=True)#accepts dictionary to rename {old:new}
+df.columns = ['a', 'b'] # this will rename all columns
 #normalizing
 normalized_vitamin_c=food_info["Vit_C_(mg)"]/food_info["Vit_C_(mg)"].max()
 #function sum()
