@@ -13,5 +13,20 @@ plt.plot(points, probabilities)
 #correlation
 from scipy.stats.stats import pearsonr
 r, p_value = pearsonr(nba_stats["fga"], nba_stats["pts"])
+#LINEAR REGRESSION ###########################
+import skilearn.linear.model import LinearRegression
+lm = LinearRegresion() # creates linear regresion object
+#object methods
+lm.fit(x,y) #dataframes
+lm.coefs_ 
+lm.intercept_
+lm.predict()
+lm.score() #R2
+# or I can do it like this which gives me more info!! OLS -- Ordinary Least Squares Fit
+linear = sm.OLS(y, X)
+# fit model
+linearfit = linear.fit()
+linearfit.summary()
+
 
 
