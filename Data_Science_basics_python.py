@@ -92,8 +92,8 @@ all_ages['Major_category'].value_counts().index #or
 list(pd.unique(recent_grads["Major_category"].values.ravel()))
 # are any values in a list in a column? 
 df["column1"].isin([1,2,3,4])
-
-
+#find index of first min
+lowest_income_county = income["county"][income["median_income"].idxmin()]
 
 ####### different ways todo same things :)
 recent_grads.pivot_table(index=['Major_category'], values=['Median'],aggfunc=np.mean)
