@@ -1,3 +1,16 @@
+#random
+import random
+random.randint(0,10)
+#to repeat sequence
+random.seed(10)
+print([random.randint(0,10) for _ in range(5)])
+random.seed(10)
+# Same sequence as above.
+print([random.randint(0,10) for _ in range(5)])
+# SAMPLE DATA!!!!
+shopping = [300, 200, 100, 600, 20]
+shopping_sample = random.sample(shopping, 3)
+
 #numpy, getting started. Matrix and vectors
 import numpy
 #open csv, set all values as strings (U75) and skip header
