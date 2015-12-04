@@ -10,6 +10,10 @@ print([random.randint(0,10) for _ in range(5)])
 # SAMPLE DATA!!!!
 shopping = [300, 200, 100, 600, 20]
 shopping_sample = random.sample(shopping, 3)
+# to get test set:
+def select_random_sample(count):
+    random_indices = random.sample(range(0, income.shape[0]), count)
+    return income.iloc[random_indices]
 
 #numpy, getting started. Matrix and vectors
 import numpy
