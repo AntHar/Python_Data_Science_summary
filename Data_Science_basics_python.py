@@ -118,3 +118,6 @@ recent_grads.groupby(['Major_category'])['Median'].mean()  #sql like
 #######
 recent_grads["Major"][recent_grads["Median"]>60000]
 recent_grads.loc[recent_grads.Median > 60000, "Major"]
+#select stuff
+liga[liga["AwayTeam"].isin(["Real Madrid","Barcelona"])]
+liga[(liga["AwayTeam"]=="Barcelona") & (liga["HomeTeam"]=="Real Madrid")]
