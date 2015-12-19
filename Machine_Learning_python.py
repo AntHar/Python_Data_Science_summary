@@ -13,6 +13,7 @@ plt.plot(points, probabilities)
 #correlation
 from scipy.stats.stats import pearsonr
 r, p_value = pearsonr(nba_stats["fga"], nba_stats["pts"])
+
 #LINEAR REGRESSION ###########################
 import skilearn.linear.model import LinearRegression
 lm = LinearRegresion() # creates linear regresion object
@@ -27,6 +28,8 @@ linear = sm.OLS(y, X)
 # fit model
 linearfit = linear.fit()
 linearfit.summary()
+
+#LOGISTIC REGRESSION #########################
 
 
 
