@@ -81,7 +81,7 @@ column_total = food_info[column_list].sum(axis=0)
 #add a column
 data_frame["new column"]=data_frame["other_column"]+2
 #is null
-    all_ages.isnull().sum() # total nulls
+all_ages.isnull().sum() # total nulls
 age_null = pd.isnull(titanic_survival["age"])
 age=titanic_survival["age"][age_null==False]
 correct_mean_age=age.sum()/len(age)
@@ -99,6 +99,10 @@ titanic_reindexed = titanic_survival.dropna(subset=["age","boat"])
 titanic_reindexed = titanic_reindexed.reset_index(drop=True) # indexes are maintained. This will reset them.
 # In[18]: how many NULLs per column
 total_na = all_ages.isnull().sum()
+#iter rows:
+for row in matches_all.iterrows():
+    #index, Series) pairs.
+    break
 #apply. Applies function to colomn or row (axis=1)
 def age_status (row):
     if row["age"]<18:
