@@ -121,6 +121,7 @@ list(pd.unique(recent_grads["Major_category"].values.ravel()))
 df["column1"].isin([1,2,3,4])
 #find index of first min
 lowest_income_county = income["county"][income["median_income"].idxmin()]
+#Booleans with data_frames: http://stackoverflow.com/questions/21415661/logic-operator-for-boolean-indexing-in-pandas
 
 ####### different ways todo same things :)
 recent_grads.pivot_table(index=['Major_category'], values=['Median'],aggfunc=np.mean)
