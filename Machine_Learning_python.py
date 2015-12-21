@@ -23,13 +23,13 @@ from scipy.stats.stats import pearsonr
 r, p_value = pearsonr(nba_stats["fga"], nba_stats["pts"])
 
 #LINEAR REGRESSION ###########################
-from skilearn.linear.model import LinearRegression
+from sklearn.linear.model import LinearRegression
 lm = LinearRegresion() # creates linear regresion object
 #object methods
-lm.fit(x,y) #dataframes
+lm.fit(x,y) #dataframe x, y can be both series or df
 lm.coefs_ 
 lm.intercept_
-lm.predict([[600., 3.0]])
+lm.predict([[600., 3.0]]) #data frame 
 lm.score() #R2
 # or I can do it like this which gives me more info!! OLS -- Ordinary Least Squares Fit
 linear = sm.OLS(y, X)
