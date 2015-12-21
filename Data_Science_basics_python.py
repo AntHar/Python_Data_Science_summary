@@ -51,7 +51,9 @@ yemen_1987=world_alcohol[yemen_1987_bool,:]
 
 
 ###################### PANDAS
-
+#types of columns: loat, integer, boolean, and object types. The object type can contain string data.
+print(sp500.dtypes)
+dataframe["column_name"] = dataframe["column_name"].astype(float) #to convert columns (in order to use them in ML)
 
 pandas_dat=pandas.read_csv("file.csv")
 pandas_dat.index #gives me the rows back (not values, the names)
