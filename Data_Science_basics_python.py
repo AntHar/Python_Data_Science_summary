@@ -15,6 +15,10 @@ def select_random_sample(count):
     random_indices = random.sample(range(0, income.shape[0]), count)
     return income.iloc[random_indices]
 
+# Linspace is as numpy function to produced evenly spaced numbers over a specified interval.
+# Create an array with 50 values between -6 and 6 as t
+t = np.linspace(-6,6,50, dtype=float)
+
 #numpy, getting started. Matrix and vectors
 import numpy
 #open csv, set all values as strings (U75) and skip header
