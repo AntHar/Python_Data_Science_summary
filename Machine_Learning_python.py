@@ -1,10 +1,10 @@
 #training, test set
 # Randomly shuffle our data for the training and test set
 admissions = admissions.loc[np.random.permutation(admissions.index)]
-# train with 700 and test with the following 300, split dataset 
-num_train = 700
-data_train = admissions[:num_train]
-data_test = admissions[num_train:]
+# Select 70% of the dataset to be training data
+num_train = int(sp500.shape[0] * .7)
+data_train = admissions.loc[:num_train,:]
+data_test = admissions.loc[highest_train_row:,:]
 
 #mean, sd
 mean = nba_stats["pf"].mean()
