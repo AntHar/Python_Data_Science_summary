@@ -21,7 +21,7 @@ lm = LinearRegresion() # creates linear regresion object
 lm.fit(x,y) #dataframes
 lm.coefs_ 
 lm.intercept_
-lm.predict()
+lm.predict([[600., 3.0]])
 lm.score() #R2
 # or I can do it like this which gives me more info!! OLS -- Ordinary Least Squares Fit
 linear = sm.OLS(y, X)
@@ -30,6 +30,7 @@ linearfit = linear.fit()
 linearfit.summary()
 
 #LOGISTIC REGRESSION #########################
+
 
 
 
