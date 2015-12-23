@@ -51,11 +51,14 @@ predicted_test = logistic_model.predict(data_test[['gpa','gre']])
 #accuracit
 accuracy_test = (predicted_test==data_test['admit']).mean()
 #roc_auc (tpr, fpr)
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score,roc_curve
 testing_auc = roc_auc_score(obs, probs) #obs=observed predictions, probs= probs obtained by model
-#pc_auc
+roc_train = roc_curve(data_train["admit"], train_probs)
+plt.plot(roc_test[0], roc_test[1])
+#pc_auc (precission, recall(tpr))
 from sklearn.metrics import precision_recall_curve
 precision, recall, thresholds = precision_recall_curve(obs, probs)
+
 
 
 
