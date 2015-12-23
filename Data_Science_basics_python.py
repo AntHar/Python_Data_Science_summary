@@ -56,6 +56,7 @@ print(sp500.dtypes)
 dataframe["column_name"] = dataframe["column_name"].astype(float) #to convert columns (in order to use them in ML)
 
 train[["value"]] #dataframe
+train_v2=train_v1.copy()
 train["value"] #series
 
 pandas_dat=pandas.read_csv("file.csv")
