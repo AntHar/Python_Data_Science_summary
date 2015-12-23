@@ -59,6 +59,7 @@ train[["value"]] #dataframe
 train["value"] #series
 
 pandas_dat=pandas.read_csv("file.csv")
+auto = pandas.read_table(auto_file, delim_whitespace=True, names=names) # to read .txt delimited by unknown number of spaces. Adding column names (names list)
 pandas_dat.index #gives me the rows back (not values, the names)
 pandas_dat
 pandas_dataframe.iloc[0,0]
@@ -81,8 +82,6 @@ normalized_vitamin_c=food_info["Vit_C_(mg)"]/food_info["Vit_C_(mg)"].max()
 #function sum()
 row_total = food_info[column_list].sum(axis=1)
 column_total = food_info[column_list].sum(axis=0)
-#add a column
-data_frame["new column"]=data_frame["other_column"]+2
 #is null
 all_ages.isnull().sum() # total nulls
 age_null = pd.isnull(titanic_survival["age"])
@@ -93,6 +92,10 @@ correct_mean_age = titanic_survival["age"].mean() # this one compuntes mean (wit
 passenger_survival = titanic_survival.pivot_table(index="pclass", values="survived", aggfunc=np.mean)
 #more complex pivot table
 port_stats = titanic_survival.pivot_table(index="embarked", values=["age","survived","fare"],aggfunc=np.mean)
+#add a column
+data_frame["new column"]=data_frame["other_column"]+2
+#delete a column
+del auto["car_name"]
 #drop columns
 titanic_df = titanic_df.drop(['PassengerId','Name','Ticket'], axis=1)
 #drop NA/null values. (axis=1 drops columns. otherwise I drop rows)
