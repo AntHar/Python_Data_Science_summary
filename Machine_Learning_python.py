@@ -58,9 +58,8 @@ plt.plot(roc_test[0], roc_test[1])
 #pc_auc (precission, recall(tpr))
 from sklearn.metrics import precision_recall_curve
 precision, recall, thresholds = precision_recall_curve(obs, probs)
-from sklearn.linear_model import LogisticRegression
 
-#MULTICLASSIFICATION (LOG REGRESSION)
+#MULTICLASSIFICATION (one-versus-all technique (LOG REGRESSION))
 # find the unique origins
 unique_origins = modified_auto["origin"].unique()
 unique_origins.sort()
@@ -90,6 +89,10 @@ for pred in unique_origins:
         #print (len(observed))
         result = (predicted & observed)
         confusion.loc[pred, obs] = sum(result)
+
+#Validation: Precision, recall, fscore:
+from sklearn.metrics import precision_score, recall_score, f1_score
+#http://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html #check average options
 
 
 
