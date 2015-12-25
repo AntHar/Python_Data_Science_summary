@@ -58,6 +58,38 @@ plt.plot(roc_test[0], roc_test[1])
 #pc_auc (precission, recall(tpr))
 from sklearn.metrics import precision_recall_curve
 precision, recall, thresholds = precision_recall_curve(obs, probs)
+from sklearn.linear_model import LogisticRegression
+
+#MULTICLASSIFICATION (LOG REGRESSION)
+# find the unique origins
+unique_origins = modified_auto["origin"].unique()
+unique_origins.sort()
+# dictionary to store models
+models = {}
+for origin in unique_origins:
+    # initialize model to dictionary
+    models[origin] = LogisticRegression()
+    # select columns for predictors and predictands
+    X_train = train[features]
+    y_train = train["origin"] == origin
+    # fit model with training data
+    models[origin].fit(X_train, y_train)
+# Dataframe to collect testing probabilities
+testing_probs = pandas.DataFrame(columns=unique_origins)
+for origin in unique_origins:
+    testing_probs[origin]=models[origin].predict_proba(test[features])[:,1]
+print (testing_probs)
+#checking resutls: CONFUSION MATRIX
+for pred in unique_origins:
+    predicted = predicted_origins == pred
+    print (predicted)
+    for obs in unique_origins:
+        observed = origins_observed == obs
+        #print (observed)
+        #print (len(predicted))
+        #print (len(observed))
+        result = (predicted & observed)
+        confusion.loc[pred, obs] = sum(result)
 
 
 
