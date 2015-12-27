@@ -57,6 +57,8 @@ dataframe["column_name"] = dataframe["column_name"].astype(float) #to convert co
 # Dummies
 embark_dummies_titanic  = pd.get_dummies(titanic_df['Embarked'])
 embark_dummies_titanic.drop(['S'], axis=1, inplace=True)
+titanic_df = titanic_df.join(embark_dummies_titanic)
+titanic_df.drop(['Embarked'], axis=1,inplace=True)
 
 train[["value"]] #dataframe
 train_v2=train_v1.copy()
