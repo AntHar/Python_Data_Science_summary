@@ -40,6 +40,7 @@ sns.axlabel('Pregnancy Length, weeks', 'Frequency')
 #scatterplots
 sns.jointplot(x="Median",y="ShareWomen",data=recent_grads)
 sns.jointplot(x="Median",y="ShareWomen",data=recent_grads, kind="hex") #hexbin plot. Good for large datasets
+# for categorical data: sns.factorplot('Embarked','Survived', data=titanic_df,size=4,aspect=3)
 #pairplots!
 sns.pairplot(births[["agepreg","prglngth","birthord"]])
 #visualize liniar relationships
