@@ -52,8 +52,11 @@ yemen_1987=world_alcohol[yemen_1987_bool,:]
 
 ###################### PANDAS
 #types of columns: loat, integer, boolean, and object types. The object type can contain string data.
-print(sp500.dtypes)
+print(sp500.info())
 dataframe["column_name"] = dataframe["column_name"].astype(float) #to convert columns (in order to use them in ML)
+# Dummies
+embark_dummies_titanic  = pd.get_dummies(titanic_df['Embarked'])
+embark_dummies_titanic.drop(['S'], axis=1, inplace=True)
 
 train[["value"]] #dataframe
 train_v2=train_v1.copy()
@@ -100,7 +103,7 @@ del auto["car_name"]
 #drop columns
 titanic_df = titanic_df.drop(['PassengerId','Name','Ticket'], axis=1)
 #drop NA/null values. (axis=1 drops columns. otherwise I drop rows)
-new_titanic_survival = titanic_survival.dropna(axis=1)
+new_titanic_survival = titanic_survival.dropna(axis=1) #inplace=True so I don't have to assign it again
 #drop rows with one of these columns with null
 titanic_reindexed = titanic_survival.dropna(subset=["age","boat"])
 titanic_reindexed = titanic_reindexed.reset_index(drop=True) # indexes are maintained. This will reset them.
