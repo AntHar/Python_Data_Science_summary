@@ -66,5 +66,6 @@ plt.xticks(rotation=90)
 #countplot: number of observations for each each categorical value
 sns.countplot(x='Major_category',data=recent_grads,palette='Greens_d')
 plt.xticks(rotation=90)
+sns.countplot(x='Survived', hue="Embarked", data=titanic_df, order=[1,0], ax=axis2)
 
 
