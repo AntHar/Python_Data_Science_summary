@@ -34,6 +34,16 @@ plt.scatter(recent_grads["Unemployment_rate"],recent_grads["Median"],color="blue
 
 #seaborn! http://stanford.edu/~mwaskom/software/seaborn/api.html#api-ref
 import seaborn as sns
+
+#setup visualitations:
+fig, (axis1,axis2) = plt.subplots(1,2,figsize=(15,4))
+axis1.set_title('Original Age values - Titanic')
+axis2.set_title('New Age values - Titanic')
+#then plot:
+sns.distplot(titanic_df["Age"],hist=True,ax=axis1)
+sns.distplot(titanic_df["Age"],hist=True,ax=axis2)
+
+
 #historgram
 sns.distplot(births['prglngth'], kde=False, rug=True, bins=10, hist=False)
 sns.axlabel('Pregnancy Length, weeks', 'Frequency')
