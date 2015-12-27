@@ -50,6 +50,7 @@ predicted_test = logistic_model.predict(data_test[['gpa','gre']])
 # TEST RESULTS
 #accuracit
 accuracy_test = (predicted_test==data_test['admit']).mean()
+logreg.score(x,y) # same as accuracity test
 #roc_auc (tpr, fpr)
 from sklearn.metrics import roc_auc_score,roc_curve
 testing_auc = roc_auc_score(obs, probs) #obs=observed predictions, probs= probs obtained by model
