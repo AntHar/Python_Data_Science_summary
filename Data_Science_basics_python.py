@@ -92,6 +92,9 @@ column_total = food_info[column_list].sum(axis=0)
 all_ages.isnull().sum() # total nulls
 age_null = pd.isnull(titanic_survival["age"])
 age=titanic_survival["age"][age_null==False]
+test_df["Fare"].fillna(test_df["Fare"].median(), inplace=True) # substitute nan for a value
+new_titanic_survival = titanic_survival.dropna(axis=1) #drop NA/null values. (axis=1 drops columns. otherwise I drop rows)
+
 correct_mean_age=age.sum()/len(age)
 correct_mean_age = titanic_survival["age"].mean() # this one compuntes mean (without using null values)
 #pivot table
