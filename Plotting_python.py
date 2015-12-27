@@ -69,3 +69,4 @@ plt.xticks(rotation=90)
 sns.countplot(x='Survived', hue="Embarked", data=titanic_df, order=[1,0], ax=axis2)
 
 
+
