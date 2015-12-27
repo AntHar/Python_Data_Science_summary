@@ -59,6 +59,8 @@ sns.regplot(x="ShareWomen",y="Median",hue="sex",data=recent_grads, ) # I can add
 #if I add col= is like adding another hue, I'll get separete plots. row= will add yet another one!!!! i could have hue="smokers", col="sex" and row="season"
 sns.regplot(x="ShareWomen",y="Median",data=recent_grads, lowess=True) #Shows the curve data
 sns.residplot(x="ShareWomen",y="Median",data=recent_grads) # check residuals
+
+
 ###### CATEGORICAL
 #1.observations within each level of the categorical variable:  stripplot(), boxplot(), and violinplot(), 
 #boxplot for subsets: I could use hue for yet another categorical value!
@@ -77,6 +79,20 @@ plt.xticks(rotation=90)
 sns.countplot(x='Major_category',data=recent_grads,palette='Greens_d')
 plt.xticks(rotation=90)
 sns.countplot(x='Survived', hue="Embarked", data=titanic_df, order=[1,0], ax=axis2)
+
+#facetgrid. Plog several things on the same plot
+#Nice example of facegrid
+# peaks for survived/not survived passengers by their age
+facet = sns.FacetGrid(titanic_df, hue="Survived",aspect=4)
+facet.map(sns.kdeplot,'Age',shade= True)
+facet.set(xlim=(0, titanic_df['Age'].max()))
+facet.add_legend()
+#Example of doing pivot table and ploting:
+# average of survived for those who had/didn't have any family member
+family_perc = titanic_df[["Family", "Survived"]].groupby(['Family'],as_index=False).mean()
+sns.barplot(x='Family', y='Survived', data=family_perc, order=[1,0], ax=axis2)
+
+axis1.set_xticklabels(["With Family","Alone"], rotation=0)
 
 
 
