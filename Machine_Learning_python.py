@@ -80,6 +80,8 @@ testing_probs = pandas.DataFrame(columns=unique_origins)
 for origin in unique_origins:
     testing_probs[origin]=models[origin].predict_proba(test[features])[:,1]
 print (testing_probs)
+#check the results (get the one with highest prob)
+predicted_origins = testing_probs.idxmax(axis=1)
 #checking resutls: CONFUSION MATRIX
 for pred in unique_origins:
     predicted = predicted_origins == pred
@@ -95,6 +97,10 @@ for pred in unique_origins:
 #Validation: Precision, recall, fscore:
 from sklearn.metrics import precision_score, recall_score, f1_score
 #http://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html #check average options
+pr_micro = precision_score(test["origin"], predicted_origins, average='micro')
+pr_weighted = precision_score(test["origin"], predicted_origins, average='weighted')
+rc_weighted = recall_score(test["origin"], predicted_origins, average='weighted')
+f_weighted = f1_score(test["origin"], predicted_origins, average='weighted')
 
 
 
