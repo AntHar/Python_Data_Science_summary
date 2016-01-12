@@ -26,8 +26,8 @@ r, p_value = pearsonr(nba_stats["fga"], nba_stats["pts"])
 from sklearn.linear.model import LinearRegression
 lm = LinearRegresion() # creates linear regresion object
 #object methods
-lm.fit(x,y) #dataframe x, y can be both series or df
-lm.coefs_ 
+lm.fit(x,y) #dataframe x, y can be both series or df (x must have at leat to dimensions, if I have only one I can add another one like this: vector[:,np.newaxis])
+lm.coefs_ # this is a list of coefficients
 lm.intercept_
 lm.predict([[600., 3.0]]) #data frame 
 lm.score() #R2
