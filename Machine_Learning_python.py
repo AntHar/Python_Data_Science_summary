@@ -102,7 +102,21 @@ pr_weighted = precision_score(test["origin"], predicted_origins, average='weight
 rc_weighted = recall_score(test["origin"], predicted_origins, average='weighted')
 f_weighted = f1_score(test["origin"], predicted_origins, average='weighted')
 
+#### K-MEANS CLUSTERING
+from sklearn.cluster import KMeans
 
+kmeans = KMeans(n_clusters=5) #5 is the number of clusters we want
+kmeans.fit(point_guards[['ppg', 'atr']]) #features use for k-means (this case is 2 dimensinal)
+point_guards['cluster'] = kmeans.labels_ #kmeans.labels will give me a series of each cluster for each entry
+# we can then visualize the clusters, eg:
+def visualize_clusters(df, num_clusters):
+    colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k']
+    for n in range(num_clusters):
+        clustered_df = df[df['cluster'] == n]
+        plt.scatter(clustered_df['ppg'], clustered_df['atr'], c=colors[n-1])
+        plt.xlabel('Points Per Game', fontsize=13)
+        plt.ylabel('Assist Turnover Ratio', fontsize=13)
+visualize_clusters(point_guards, 5)
 
 
 
