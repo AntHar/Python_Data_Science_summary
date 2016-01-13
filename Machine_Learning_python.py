@@ -119,6 +119,13 @@ def visualize_clusters(df, num_clusters):
 visualize_clusters(point_guards, 5)
 
 
+#### DECISION TREES
+#to change to numbers (sometimes is better for machiche learing alg in sklearn)
+dfc = pd.DataFrame({'a':['a','b','c','a','d','c']})
+dfcc = pd.Categorical.from_array(dfc['a'])
+dfc['a'] = dfcc.codes
+
+
 
 
 
