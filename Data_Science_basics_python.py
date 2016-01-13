@@ -19,6 +19,16 @@ def select_random_sample(count):
 # Create an array with 50 values between -6 and 6 as t
 t = np.linspace(-6,6,50, dtype=float)
 
+#Categorical data: 
+#to do categorical
+dfc = pd.DataFrame({'a':['a','b','c','a','d','c']})
+dfcc = pd.Categorical(dfc['a'])
+dfcc.describe()
+#to change to numbers (sometimes is better for machiche learing alg in sklearn)
+dfc = pd.DataFrame({'a':['a','b','c','a','d','c']})
+dfcc = pd.Categorical.from_array(dfc['a'])
+dfc['a'] = dfcc.codes
+
 #numpy, getting started. Matrix and vectors
 import numpy
 #open csv, set all values as strings (U75) and skip header
