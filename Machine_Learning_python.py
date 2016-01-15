@@ -129,6 +129,10 @@ from sklearn.tree import DecisionTreeClassifier #DecisionTreeRegression for regr
 # Set random_state to 1 to keep results consistent.
 clf = DecisionTreeClassifier(random_state=1)
 fit = clf.fit(income[columns],income["high_income"])
+predictions = clf.predict(test[columns])
+#evaluaton the error. Binary classification we can use auc
+from sklearn.metrics import roc_auc_score
+error = roc_auc_score(predictions,test["high_income"])
 
 
 
