@@ -137,6 +137,9 @@ def age_status (row):
     else:
         return "unknown"
 age_labels = titanic_survival.apply(age_status,axis=1)
+# to apply a funcition and give it values a I have to use lambda:
+df.apply(lambda row: predict(tree, row), axis=1), axis=1) # in this case precict nees to attributes (tree and row)
+#row will always be passes automatically but to pass tree I can only use do it with lambda.
 #how many values of each
 all_ages['Major_category'].value_counts()
 #get unique values of a column
