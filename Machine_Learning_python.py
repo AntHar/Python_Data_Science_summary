@@ -124,6 +124,11 @@ visualize_clusters(point_guards, 5)
 dfc = pd.DataFrame({'a':['a','b','c','a','d','c']})
 dfcc = pd.Categorical.from_array(dfc['a'])
 dfc['a'] = dfcc.codes
+##
+from sklearn.tree import DecisionTreeClassifier #DecisionTreeRegression for regression
+# Set random_state to 1 to keep results consistent.
+clf = DecisionTreeClassifier(random_state=1)
+fit = clf.fit(income[columns],income["high_income"])
 
 
 
