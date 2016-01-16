@@ -152,6 +152,7 @@ from sklearn.ensemble import RandomForestClassifier #RamdomForestRegressor
 clf = RandomForestClassifier(n_estimators=10, random_state=1, min_samples_leaf=75)
 fclf = clf.fit(train[columns],train["high_income"])
 predictions = fclf.predict(test[columns])
+#increasing the number of trees beyond a certain number (usually 200) won't help much at all.
 
 
 #Bagging
