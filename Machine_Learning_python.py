@@ -128,11 +128,38 @@ dfc['a'] = dfcc.codes
 from sklearn.tree import DecisionTreeClassifier #DecisionTreeRegression for regression
 # Set random_state to 1 to keep results consistent.
 clf = DecisionTreeClassifier(random_state=1)
+#max_depth -- this globally restricts how deep the tree can go.
+#min_samples_split -- The minimum number of rows needed in a node before it can be split. For example, if this is set to 2, then nodes with 2 rows won't be split, and will become leaves instead.
+#min_samples_leaf -- the minimum number of rows that a leaf must have.
+#min_weight_fraction_leaf -- the fraction of input rows that are required to be at a leaf.
+#max_leaf_nodes -- the maximum number of total leaves. This will cap the count of leaf nodes as the tree is being built.
+#As you can see, some of these parameters don't make sense together. Having max_depth and max_leaf_nodes together isn't allowed.
 fit = clf.fit(income[columns],income["high_income"])
 predictions = clf.predict(test[columns])
 #evaluaton the error. Binary classification we can use auc
 from sklearn.metrics import roc_auc_score
 error = roc_auc_score(predictions,test["high_income"])
+
+#### Random forests
+from sklearn.ensemble import RandomForestClassifier #RamdomForestRegressor
+# n_estimators parameter that indicates how many trees to build
+# we can tweak a few parameters with random forests:
+# min_samples_leaf, min_samples_split, max_depth, max_leaf_nodes
+#These parameters apply to the individual trees in the model, and change how they are constructed. There are also parameters specific to the random forest:
+#n_estimators
+#bootstrap -- defaults to True. Bootstrap aggregation is another name for bagging, and this indicates whether to turn it on
+#http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
+clf = RandomForestClassifier(n_estimators=10, random_state=1, min_samples_leaf=75)
+fclf = clf.fit(train[columns],train["high_income"])
+predictions = fclf.predict(test[columns])
+
+
+#Bagging
+
+#Feature subset selection
+#We can also repeat our random subset selection process in scikit-learn. We just set the splitter parameter on DecisionTreeClassifier 
+# to "random", and the max_features parameter to "auto". If we have N columns, this will pick a subset of features of size N−−√N,
+#compute the gini coefficient (similar to information gain) for each, and split the node on the best column in the subset.
 
 
 
