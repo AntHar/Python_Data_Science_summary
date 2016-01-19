@@ -149,11 +149,13 @@ from sklearn.ensemble import RandomForestClassifier #RamdomForestRegressor
 #n_estimators
 #bootstrap -- defaults to True. Bootstrap aggregation is another name for bagging, and this indicates whether to turn it on
 #http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
-clf = RandomForestClassifier(n_estimators=10, random_state=1, min_samples_leaf=75)
+clf = RandomForestClassifier(n_estimators=10, random_state=1, min_samples_leaf=75) # I can also add weight for inbalance data
 fclf = clf.fit(train[columns],train["high_income"])
 predictions = fclf.predict(test[columns])
 #increasing the number of trees beyond a certain number (usually 200) won't help much at all.
-
+# summarize the fit of the model
+print(metrics.classification_report(expected, predicted))
+print(metrics.confusion_matrix(expected, predicted))
 
 #Bagging
 
